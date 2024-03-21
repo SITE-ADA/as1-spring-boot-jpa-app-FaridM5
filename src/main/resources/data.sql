@@ -3,8 +3,8 @@ INSERT INTO products (name, price, description) VALUES
 ('ADA Squirrel', 0.00, 'Sahiblendirilir');
 
 INSERT INTO users (username, name, surname, email, phone, date_of_birth) VALUES
-('johndoe', 'John', 'Doe', 'johndoe@example.com', '555-0123', '1990-01-01'),
-('janedoe', 'Jane', 'Doe', 'janedoe@example.com', '555-0456', '1992-02-02');
+('koroglu', 'Kor', 'Oglu', 'dastan1@dede.qorqud', '000-0000', '2000-01-01'),
+('tepegoz', 'Salam', 'Oglu', 'dastan2@dede.qorqud', '000-0000', '2000-01-01');
 
 
 INSERT INTO user_product (user_id, product_id) VALUES

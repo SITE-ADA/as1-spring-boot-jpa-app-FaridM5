@@ -46,7 +46,7 @@
     <div class="container">
         <header>Add User</header>
 
-        <form action="#">
+        <form action="/user/save" method="post" th:action="@{/user/save}">
             <div class="form first">
                 <div class="details personal">
                     <span class="title">Personal Details</span>
@@ -55,37 +55,37 @@
 
                         <div class="input-field">
                             <label>Username</label>
-                            <input type="text" placeholder="Enter username" required>
+                            <input type="text" name="username" placeholder="Enter username" required>
                         </div>
 
                         <div class="input-field">
                             <label>Name</label>
-                            <input type="text" placeholder="Enter user's name" required>
+                            <input type="text" name="name" placeholder="Enter user's name" required>
                         </div>
 
                         <div class="input-field">
                             <label>Surname</label>
-                            <input type="text" placeholder="Enter user's surname" required>
+                            <input type="text" name="surname" placeholder="Enter user's surname" required>
                         </div>
 
                         <div class="input-field">
                             <label>Email</label>
-                            <input type="text" placeholder="Enter user email" required>
+                            <input type="text" name="email" placeholder="Enter user email" required>
                         </div>
 
                         <div class="input-field">
                             <label>Mobile Number</label>
-                            <input type="number" placeholder="Enter phone" required>
+                            <input type="number" name="phone" placeholder="Enter phone" required>
                         </div>
 
                         <div class="input-field">
                             <label>Date of Birth</label>
-                            <input type="date" placeholder="Enter birth date" required>
+                            <input type="date" name="dateOfBirth" placeholder="Enter birth date" required>
                         </div>
                     </div>
                 </div>
 
-                <button class="nextBtn">
+                <button class="nextBtn" type="submit">
                     <span class="btnText">Create</span>
                 </button>
             </div>

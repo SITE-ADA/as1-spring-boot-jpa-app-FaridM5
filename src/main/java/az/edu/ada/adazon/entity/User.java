@@ -9,7 +9,7 @@ import java.util.Set;
 @Table(name = "users")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String username;
@@ -36,6 +36,10 @@ public class User {
         this.phone = phone;
         this.dateOfBirth = dateOfBirth;
         this.products = products;
+    }
+
+    public User(){
+        super();
     }
     public Long getId() {
         return id;

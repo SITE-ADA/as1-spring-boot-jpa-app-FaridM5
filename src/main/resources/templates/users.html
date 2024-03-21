@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Users</title>
+    <link rel="stylesheet" href="/users.css" />
+
+    <link rel="icon" type="image/png"
+          href="images/amazonico.jpg"/>
+
+    <script src="https://kit.fontawesome.com/0faddc1af8.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <header id="navbar">
+        <div class="logocont">
+            <a href="#" onclick="_blank"><img class="logo" src="images/adazonw.png"></a>
+        </div>
+        <input type="checkbox" id="nav_check" hidden>
+        <nav>
+            <ul>
+                <li>
+                    <a href="" class="active">Add User</a>
+                </li>
+                <li>
+                    <a href="">Add Product</a>
+                </li>
+                <li>
+                    <a href="">Users</a>
+                </li>
+                <li>
+                    <a href="">Purchases</a>
+                </li>
+                <li>
+                    <a href="">Filter</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <div class="heading">
+        <h1>The list for the Users</h1>
+        <span>You may need to add there some to see!</span>
+    </div>
+
+    <div class="container">
+        <header>Users</header>
+        <br>
+        <div class="table">
+            <table style="border: 3px;">
+
+                <thead>
+                <tr>
+                    <th scope="col">Username</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Surname</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Date of Birth</th>
+                    <th scope="col">Delete</th>
+                    <th scope="col">Update</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr th:each="u :${user}">
+                    <td th:text="${u.username}"></td>
+                    <td th:text="${u.name}"></td>
+                    <td th:text="${u.surname}"></td>
+                    <td th:text="${u.email}"></td>
+                    <td th:text="${u.phone}"></td>
+                    <td th:text="${u.dateOfBirth}"></td>
+                    <td>
+                    <div class="d-flex align-items-center">
+                        <span style="margin-left: 15px;">
+                            <a id="deleteicon" class="ms-2" style="color:red"><i class="fa-solid fa-trash"></i></a>
+                        </span>
+                    </div>
+                    </td>
+                    <td>
+                    <div class="d-flex align-items-center">
+                        <span style="margin-left: 20px;">
+                            <a class="ms-2" style="color:blue"><i class="fa-solid fa-pen-to-square ms-4"></i></a>
+                        </span>
+                    </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
