@@ -24,4 +24,9 @@ public class UserService {
     public List<User> listUser(){
         return userRepository.findAll();
     }
+
+    public User findUserById(Long id) {
+        return userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid user id:" + id));
+    }
+
 }

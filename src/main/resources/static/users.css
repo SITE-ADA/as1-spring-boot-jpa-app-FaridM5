@@ -8,20 +8,6 @@ body{
     
     background: white;
 }
-/* .container{
-    min-height:20px;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    max-width: 1305px;
-    width: 100%;
-    border-radius: 6px;
-    padding: 30px;
-    margin: 0 300px;
-    margin-left: 30px;
-    background-color: #131A22;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-} */
 
 .container {
     min-height: 20px;
@@ -36,7 +22,7 @@ body{
     margin-left: 30px;
     background-color: #131A22;
     box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-x: auto; 
 }
 
 .container header{

@@ -2,9 +2,11 @@ package az.edu.ada.adazon.controller;
 
 import az.edu.ada.adazon.entity.User;
 import az.edu.ada.adazon.service.UserService;
+import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -14,6 +16,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/user")
 public class UsersController {
+    @Autowired
     private final UserService userService;
 
     @Autowired
@@ -35,6 +38,19 @@ public class UsersController {
     public ModelAndView listUser(){
         List<User> list=userService.listUser();
         return new ModelAndView("users", "user", list);
+    }
+
+    @GetMapping("/edit/{id}")
+    public String updateForm(@PathVariable("id") Long id, Model model){
+        User user = userService.findUserById(id);
+        model.addAttribute("user", user);
+        return "edituser";
+    }
+
+    @PostMapping("/update")
+    public String updateUser(User user) {
+        userService.saveUser(user);
+        return "redirect:/user/list";
     }
 
 }
