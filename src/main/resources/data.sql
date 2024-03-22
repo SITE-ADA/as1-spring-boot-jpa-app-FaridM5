@@ -1,6 +1,12 @@
 INSERT INTO products (name, price, description) VALUES
 ('SmartBoard', 500.00, 'Az Islenib, Ela veziyyetde'),
-('ADA Squirrel', 0.00, 'Sahiblendirilir');
+('ADA Squirrel', 0.00, 'Sahiblendirilir'),
+('Stullar', 120.00, 'Ideal veziyyetde'),
+('Switch', 100.00, 'Qutusu acilmis'),
+('Rack Cabinet', 300.00, '2 il istifade olunub'),
+('Kart Qabi', 6.00, 'yeni mehsul'),
+('Su Dispanseri', 130.00, 'Istifadeye yararli');
+
 
 INSERT INTO users (username, name, surname, email, phone, date_of_birth) VALUES
 ('AliH', 'Ali', 'Huseynov', 'alih@adazon.com', '123-4567', '1998-05-12'),

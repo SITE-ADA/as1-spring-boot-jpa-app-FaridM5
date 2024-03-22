@@ -2,19 +2,32 @@ package az.edu.ada.adazon.entity;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Table(name = "products")
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
     private double price;
     private String description;
 
-    // Constructors
+    @ManyToMany(mappedBy = "products")
+    private Set<User> users = new HashSet<>();
+
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
+    }
+
     public Product() {}
 
     public Product(String name, double price, String description) {
@@ -23,7 +36,6 @@ public class Product {
         this.description = description;
     }
 
-    // Getters and Setters
     public Long getId() {
         return id;
     }

@@ -53,7 +53,8 @@
             <div th:each="product : ${products}" class="col">
 
                 <div class="imgContainer">
-                    <img th:src="@{${'/images/' + product.id + '.png'}}" alt="Product Image" />
+                    <img th:if="${product.id le initialProductCount}" th:src="@{${'/images/preloaded/' + product.id + '.png'}}" alt="Product Image" />
+                    <img th:if="${product.id gt initialProductCount}" th:src="@{${'/images/uploaded/' + product.id + '.png'}}" alt="Product Image" />
                 </div>
 
                 <div class="title">

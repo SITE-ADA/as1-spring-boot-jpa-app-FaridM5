@@ -5,6 +5,7 @@ CREATE TABLE IF NOT EXISTS products (
     description TEXT
 );
 
+
 CREATE TABLE IF NOT EXISTS users (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(255) NOT NULL,

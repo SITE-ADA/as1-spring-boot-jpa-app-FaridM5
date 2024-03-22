@@ -53,6 +53,7 @@
 
                 <thead>
                 <tr>
+                    <th scope="col">ID</th>
                     <th scope="col">Username</th>
                     <th scope="col">Name</th>
                     <th scope="col">Surname</th>
@@ -66,6 +67,7 @@
 
                 <tbody>
                 <tr th:each="u :${user}">
+                    <td th:text="${u.id}"></td>
                     <td th:text="${u.username}"></td>
                     <td th:text="${u.name}"></td>
                     <td th:text="${u.surname}"></td>
