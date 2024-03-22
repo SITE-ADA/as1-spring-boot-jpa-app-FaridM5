@@ -46,7 +46,7 @@
     </div>
 
     <div class="container">
-        <header>Users</header>
+        <header>Users: <span th:text="${totalUsers} + ' records in total'"></span></header>
         <br>
         <div class="table">
             <table style="border: 3px;">
@@ -75,14 +75,14 @@
                     <td>
                     <div class="d-flex align-items-center">
                         <span style="margin-left: 15px;">
-                            <a id="deleteicon" class="ms-2" style="color:red"><i class="fa-solid fa-trash"></i></a>
+                            <a th:href="@{/user/delete/{id}(id=${u.id})}" style="color: red"><i class="fa-solid fa-trash"></i></a>
                         </span>
                     </div>
                     </td>
                     <td>
                     <div class="d-flex align-items-center">
                         <span style="margin-left: 20px;">
-                            <a class="ms-2" th:href="@{/user/edit/{id}(id=${u.id})}" style="color:#cb7d08"><i class="fa-solid fa-pen-to-square ms-4"></i></a>
+                            <a th:href="@{/user/edit/{id}(id=${u.id})}" style="color:#cb7d08"><i class="fa-solid fa-pen-to-square ms-4"></i></a>
                         </span>
                     </div>
                     </td>

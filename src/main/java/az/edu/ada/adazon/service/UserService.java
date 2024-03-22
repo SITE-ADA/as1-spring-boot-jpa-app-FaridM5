@@ -29,4 +29,8 @@ public class UserService {
         return userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid user id:" + id));
     }
 
+    public void deleteUser(Long id){
+        userRepository.deleteById(id);
+    }
+
 }

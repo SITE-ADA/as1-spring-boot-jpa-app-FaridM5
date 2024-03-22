@@ -37,7 +37,10 @@ public class UsersController {
     @GetMapping("/list")
     public ModelAndView listUser(){
         List<User> list=userService.listUser();
-        return new ModelAndView("users", "user", list);
+        ModelAndView modelAndView = new ModelAndView("users");
+        modelAndView.addObject("user", list);
+        modelAndView.addObject("totalUsers", list.size());
+        return modelAndView;
     }
 
     @GetMapping("/edit/{id}")
@@ -50,6 +53,12 @@ public class UsersController {
     @PostMapping("/update")
     public String updateUser(User user) {
         userService.saveUser(user);
+        return "redirect:/user/list";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteUser(@PathVariable("id") long id){
+        userService.deleteUser(id);
         return "redirect:/user/list";
     }
 
