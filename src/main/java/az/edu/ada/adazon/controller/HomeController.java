@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 
@@ -50,14 +51,13 @@ public class HomeController {
         return "redirect:/purchases";
     }
 
+
     @GetMapping("/purchases")
     public String showPurchases(Model model) {
         List<PurchaseDTO> purchases = purchaseService.findAllPurchases();
         model.addAttribute("purchases", purchases);
         return "purchases";
     }
-
-
 }
 
 

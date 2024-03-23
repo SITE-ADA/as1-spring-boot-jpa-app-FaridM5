@@ -9,7 +9,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.data.domain.Page;
+
+
+
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -34,13 +38,22 @@ public class UsersController {
         return "redirect:/user/add";
     }
 
+
     @GetMapping("/list")
-    public ModelAndView listUser(){
-        List<User> list=userService.listUser();
-        ModelAndView modelAndView = new ModelAndView("users");
-        modelAndView.addObject("user", list);
-        modelAndView.addObject("totalUsers", list.size());
-        return modelAndView;
+    public String listUser(Model model,
+                           @RequestParam(defaultValue = "0") int page,
+                           @RequestParam(defaultValue = "10") int size,
+                           @RequestParam(defaultValue = "id") String sortField,
+                           @RequestParam(defaultValue = "asc") String sortDir) {
+        Page<User> userPage = userService.listUser(page, size, sortField, sortDir);
+        model.addAttribute("users", userPage.getContent());
+        model.addAttribute("currentPage", page);
+        model.addAttribute("totalPages", userPage.getTotalPages());
+        model.addAttribute("totalUsers", userPage.getTotalElements());
+        model.addAttribute("sortField", sortField);
+        model.addAttribute("sortDir", sortDir);
+        model.addAttribute("reverseSortDir", sortDir.equals("asc") ? "desc" : "asc");
+        return "users";
     }
 
     @GetMapping("/edit/{id}")
