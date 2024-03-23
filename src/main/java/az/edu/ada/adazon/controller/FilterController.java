@@ -34,6 +34,6 @@ public class FilterController {
                               Model model) {
         List<User> users = userService.findByCriteria(id, username, name, surname, email, phone, dateOfBirth);
         model.addAttribute("users", users);
-        return "filter"; // Name of the HTML template for displaying the filtered results
+        return "filter";
     }
 }

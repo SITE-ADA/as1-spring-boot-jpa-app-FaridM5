@@ -32,6 +32,17 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 }
 
+//customization of generation of Javadoc
+javadoc {
+	source = sourceSets.main.allJava
+	options.memberLevel = JavadocMemberLevel.PRIVATE
+	options.author = true
+	options.version = true
+}
+
+
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+
