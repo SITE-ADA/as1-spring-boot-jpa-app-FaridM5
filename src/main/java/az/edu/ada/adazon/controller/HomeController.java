@@ -44,12 +44,19 @@ public class HomeController {
         return "redirect:/purchases";
     }
 
+    @GetMapping("/deletePurchase")
+    public String deletePurchase(@RequestParam Long userId, @RequestParam Long productId) {
+        purchaseService.deletePurchase(userId, productId);
+        return "redirect:/purchases";
+    }
+
     @GetMapping("/purchases")
     public String showPurchases(Model model) {
         List<PurchaseDTO> purchases = purchaseService.findAllPurchases();
         model.addAttribute("purchases", purchases);
         return "purchases";
     }
+
 
 }
 

@@ -7,6 +7,7 @@ public class PurchaseDTO {
     private String productName;
     private String description;
     private double price;
+    private Long productId;
 
     public Long getUserId() {
         return userId;
@@ -56,12 +57,21 @@ public class PurchaseDTO {
         this.price = price;
     }
 
-    public PurchaseDTO(Long userId, String username, String email, String productName, String description, double price) {
+    public Long getProductId() {
+        return productId;
+    }
+
+    public void setProductId(Long productId) {
+        this.productId = productId;
+    }
+
+    public PurchaseDTO(Long userId, String username, String email, String productName, String description, double price, Long productId) {
         this.userId = userId;
         this.username = username;
         this.email = email;
         this.productName = productName;
         this.description = description;
         this.price = price;
+        this.productId = productId;
     }
 }

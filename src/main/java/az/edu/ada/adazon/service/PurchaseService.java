@@ -40,5 +40,13 @@ public class PurchaseService {
         userRepository.save(user);
     }
 
+    public void deletePurchase(Long userId, Long productId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid user ID: " + userId));
+        Product product = productRepository.findById(productId)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid product ID: " + productId));
 
+        user.getProducts().remove(product);
+        userRepository.save(user);
+    }
 }

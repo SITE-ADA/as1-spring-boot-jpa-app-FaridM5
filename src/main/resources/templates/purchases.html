@@ -59,6 +59,7 @@
                     <th scope="col">Product Name</th>
                     <th scope="col">Description</th>
                     <th scope="col">Price</th>
+                    <th scope="col">Delete</th>
                 </tr>
                 </thead>
 
@@ -70,6 +71,14 @@
                     <td th:text="${purchase.productName}"></td>
                     <td th:text="${purchase.description}"></td>
                     <td th:text="${purchase.price}"></td>
+                    <td>
+                        <div class="d-flex align-items-center">
+                        <span style="margin-left: 15px;">
+                            <a th:href="@{/deletePurchase(userId=${purchase.userId}, productId=${purchase.productId})}" style="color: red"><i class="fa-solid fa-trash"></i></a>
+<!--                            <a th:href="" style="color: red"><i class="fa-solid fa-trash"></i></a>-->
+                        </span>
+                        </div>
+                    </td>
                 </tr>
                 </tbody>
             </table>
