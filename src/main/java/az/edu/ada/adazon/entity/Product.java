@@ -1,5 +1,6 @@
 package az.edu.ada.adazon.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
@@ -18,6 +19,7 @@ public class Product {
     private String description;
 
     @ManyToMany(mappedBy = "products")
+    @JsonBackReference
     private Set<User> users = new HashSet<>();
 
     public Set<User> getUsers() {

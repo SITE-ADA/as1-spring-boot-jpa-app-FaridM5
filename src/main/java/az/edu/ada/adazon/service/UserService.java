@@ -63,4 +63,9 @@ public class UserService {
         });
     }
 
+    public List<User> findUsersByProductName(String productName) {
+        return userRepository.findUsersByProductName(productName);
+    }
+
+
 }

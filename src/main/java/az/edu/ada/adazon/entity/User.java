@@ -1,5 +1,6 @@
 package az.edu.ada.adazon.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -25,6 +26,7 @@ public class User {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "product_id")
     )
+    @JsonManagedReference
     private Set<Product> products = new HashSet<>();
 
     public User(Long id, String username, String name, String surname, String email, String phone, LocalDate dateOfBirth, Set<Product> products) {
