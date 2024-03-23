@@ -67,25 +67,16 @@
                 </div>
 
                 <div class="footer">
-
-                    <div class="cart-container">
-                        <h3 id="prodHead">Purchase</h3>
-                        <input type="text" id="myInput"
-                               oninput="this.value = this.value.replace(/[^0-9.]/g, '');" placeholder="ID" />
-                    </div>
-
-                    <div class="buy-container">
-                        <h3 id="prodHead">Add to Cart</h3>
-                        <input type="text" id="myInput"
-                               oninput="this.value = this.value.replace(/[^0-9.]/g, '');" placeholder="ID" />
-                    </div>
-                    <div class="submitbutt"><button>Proceed</button></div>
+                    <form th:action="@{/purchase}" method="post">
+                        <input class= "myInput" type="hidden" name="productId" th:value="${product.id}" />
+                        <div class="cart-container">
+                            <h3 id="prodHead">Purchase</h3>
+                            <input type="text" name="userId" placeholder="Enter User ID" required>
+                        </div>
+                        <div class="submitbutt"><button type="submit">Proceed</button></div>
+                    </form>
                 </div>
-
             </div>
-
-
-
         </div>
       </div>
 
